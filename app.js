@@ -1,9 +1,9 @@
-var express = require('express');
-app = express();
-port = process.env.PORT || 3000;
-mongoose = require('mongoose');
-Product = require('./models/productModel');
-bodyParser = require('body-parser');
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
+const mongoose = require('mongoose');
+const Product = require('./models/productModel');
+const bodyParser = require('body-parser');
 
 mongoose.Promise = global.Promise;
 
@@ -12,7 +12,7 @@ let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
 db.once('open', function () {
-    console.log("we are connected to database onlinestore");
+  console.log("we are connected to database onlinestore");
 });
 
 app.use(bodyParser.urlencoded({ extended: true }));

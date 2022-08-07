@@ -1,26 +1,15 @@
 'use strict';
-var express = require('express');
+let express = require('express');
 module.exports = function (app) {
 
-    var product = require('../controllers/productController');
+    let productController = require('../controllers/productController');
 
     app.route('/products')
-
-        .get(product.products)
-
-        .post(product.add);
+        .get(productController.listAllProducts)
+        .post(productController.addProduct);
 
     app.route('/products/:productId')
-
-        .get(product.getproduct)
-
-        .put(product.update)
-
-        .delete(product.delete);
-
-    // app.post('/', express.json(),product.mproduct);
-    // app.get('/', function (req, res) {
-    //     res.send("hi")
-    //   })
-
+        .get(productController.getproduct)
+        .put(productController.update)
+        .delete(productController.delete);
 };
